@@ -110,7 +110,7 @@ function Header() {
 					<a
 						href="https://github.com/sammorgandev"
 						className="text-sm font-semibold leading-6 text-gray-900">
-						Git hub <span aria-hidden="true">&rarr;</span>
+						Get a quote <span aria-hidden="true">&rarr;</span>
 					</a>
 				</div>
 			</nav>
@@ -163,7 +163,7 @@ function Header() {
 								<a
 									href="#"
 									className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-									Git hub
+									Get a quote
 								</a>
 							</div>
 						</div>

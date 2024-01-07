@@ -3,7 +3,7 @@ import Footer from "./Footer";
 import BackgroundBlur from "./BackgroundBlur";
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className=" bg-gray-50 h-screen flex flex-col sticky">
+		<div className=" bg-gray-50 h-screen flex flex-col">
 			<Header />
 
 			<div className="flex-shrink flex-grow-0">

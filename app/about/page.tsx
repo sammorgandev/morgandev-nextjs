@@ -9,25 +9,31 @@ export default function About() {
 		<MainLayout>
 			<div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
 				<p className="text-base font-semibold leading-7 text-indigo-600">
-					AFFORDABLE & RELIABLE
+					SAM AND DORI MORGAN{" "}
 				</p>
 				<h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-					App development done right.
+					Your local app development team.
 				</h1>
 				<p className="mt-6 text-xl leading-8">
-					Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At
-					arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae
-					feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget.
-					Eleifend egestas fringilla sapien.
+					Hello! We&apos;re Sam and Dori Morgan, a married couple deeply
+					passionate about technology and its potential to make a real
+					difference in people&apos;s lives. Based in the quaint town of Old
+					Saybrook, Connecticut, we&apos;ve joined forces not just in life but
+					also in our professional quest to support small businesses and
+					entrepreneurs through custom app development. Our story is a blend of
+					two paths, rich with individual experiences in software development,
+					which converged as we realized our shared dream: to help local
+					businesses and budding entrepreneurs by making technology more
+					accessible and less intimidating.
 				</p>
 				<div className="mt-10 max-w-2xl">
 					<p>
-						Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
-						enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
-						praesent donec est. Odio penatibus risus viverra tellus varius sit
-						neque erat velit. Faucibus commodo massa rhoncus, volutpat.
-						Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae
-						sed turpis id.
+						We believe that big changes start small. That&apos;s why our focus
+						is on supporting the little guys - the small businesses and
+						entrepreneurs who are often overshadowed in the digital realm. We
+						understand that not every business can afford the high costs
+						associated with traditional coding services, and we&apos;re here to
+						offer an alternative.
 					</p>
 					<ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
 						<li className="flex gap-x-3">
@@ -37,11 +43,10 @@ export default function About() {
 							/>
 							<span>
 								<strong className="font-semibold text-gray-900">
-									Data types.
+									Tailored solutions for small businesses.{" "}
 								</strong>{" "}
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-								Maiores impedit perferendis suscipit eaque, iste dolor
-								cupiditate blanditiis ratione.
+								We provide custom software development that fits the unique
+								needs of your business. No one-size-fits-all solutions here.
 							</span>
 						</li>
 						<li className="flex gap-x-3">
