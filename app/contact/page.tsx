@@ -5,10 +5,10 @@ export default function Contact() {
 		<MainLayout>
 			<div className="relative isolate bg-transparent">
 				<div className="mx-auto max-w-2xl lg:max-w-4xl">
-					<h2 className="text-4xl font-bold tracking-tight text-gray-900">
+					<h2 className="text-4xl text-left lg:text-center font-bold tracking-tight text-gray-900">
 						Let&apos;s talk about your project
 					</h2>
-					<p className="mt-2 text-lg leading-8 text-gray-600">
+					<p className="mt-2 text-lg text-left lg:text-center leading-8 text-gray-600">
 						We help companies and individuals build out their brand guidelines.
 					</p>
 					<div className="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">

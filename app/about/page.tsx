@@ -8,32 +8,29 @@ export default function About() {
 	return (
 		<MainLayout>
 			<div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-				<p className="text-base font-semibold leading-7 text-indigo-600">
-					SAM AND DORI MORGAN{" "}
+				<p className="text-base text-left lg:text-center font-semibold leading-7 text-indigo-600">
+					SAM MORGAN - WEB DEVELOPER{" "}
 				</p>
-				<h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-					Your local app development team.
+				<h1 className="mt-2 text-left lg:text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+					Affordable and personable.
 				</h1>
 				<p className="mt-6 text-xl leading-8">
-					Hello! We&apos;re Sam and Dori Morgan, a married couple deeply
-					passionate about technology and its potential to make a real
-					difference in people&apos;s lives. Based in the quaint town of Old
-					Saybrook, Connecticut, we&apos;ve joined forces not just in life but
-					also in our professional quest to support small businesses and
-					entrepreneurs through custom app development. Our story is a blend of
-					two paths, rich with individual experiences in software development,
-					which converged as we realized our shared dream: to help local
-					businesses and budding entrepreneurs by making technology more
-					accessible and less intimidating.
+					Hi! I&apos;m Sam, and I&apos;m passionate about building software. I
+					taught myself programming at a young age, and after a detour in the
+					music industry, now work in tech full time as a product developer for{" "}
+					<a href="https://bubble.io" className="text-indigo-600 underline">
+						Bubble.
+					</a>
 				</p>
-				<div className="mt-10 max-w-2xl">
+				<div className="mt-10 text-left max-w-2xl">
 					<p>
-						We believe that big changes start small. That&apos;s why our focus
-						is on supporting the little guys - the small businesses and
-						entrepreneurs who are often overshadowed in the digital realm. We
-						understand that not every business can afford the high costs
-						associated with traditional coding services, and we&apos;re here to
-						offer an alternative.
+						This site is my home for personal work and side projects. I
+						don&apos;t take on a lot of freelance development work, but I&apos;m
+						particularly passionate about helping small businesses and niche
+						industries use technology and automation to supercharge their
+						operations - so if that sounds like something you&apos;re looking
+						for in a developer, I&apos;m always open to networking and
+						connection opportunities.
 					</p>
 					<ul role="list" className="mt-8 max-w-xl space-y-8 text-gray-600">
 						<li className="flex gap-x-3">

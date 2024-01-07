@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 			<div className="flex-shrink flex-grow-0">
 				<BackgroundBlur />
 			</div>
-			<div className=" bg-gray-50 flex-grow py-8">{children}</div>
+			<div className=" bg-gray-50 flex-grow py-8 px-6 lg:px-8">{children}</div>
 
 			<div className="flex-shrink flex-grow-0">
 				{" "}

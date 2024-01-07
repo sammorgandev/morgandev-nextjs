@@ -2,7 +2,11 @@
 import React, { use } from "react";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+	Bars3Icon,
+	XMarkIcon,
+	CodeBracketSquareIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
@@ -70,15 +74,15 @@ function Header() {
 				className="flex items-center justify-between p-6 lg:px-8"
 				aria-label="Global">
 				<div className="flex items-center gap-4 lg:flex-1">
-					<a href="/" className="-m-1.5 p-1.5 flex gap-4 items-center">
-						<Image
+					<a href="/" className="-mx-1 flex gap-2 items-center">
+						{/*	<Image
 							className="w-8 h-8 object-cover rounded-full"
 							src="/profilepic.jpg"
 							alt=""
 							width={50}
 							height={50}
-						/>
-
+		/> */}
+						<CodeBracketSquareIcon className="h-8 w-8 text-indigo-600" />
 						<b>
 							{" "}
 							<h1 className="text-xl text-indigo-600">morgan/dev</h1>
@@ -108,7 +112,7 @@ function Header() {
 				</div>
 				<div className="hidden lg:flex lg:flex-1 lg:justify-end">
 					<a
-						href="https://github.com/sammorgandev"
+						href="/contact"
 						className="text-sm font-semibold leading-6 text-gray-900">
 						Get a quote <span aria-hidden="true">&rarr;</span>
 					</a>
@@ -124,15 +128,15 @@ function Header() {
 					<div className="flex items-center gap-4 justify-between">
 						<div className="flex gap-4">
 							{" "}
-							<a href="/" className="-m-1.5 p-1.5 flex items-center gap-4">
-								<Image
-									className="w-8 h-8 object-cover rounded-full"
-									src="/profilepic.jpg"
-									alt=""
-									width={50}
-									height={50}
-								/>
-
+							<a href="/" className="-mx-1 flex items-center gap-2">
+								{/*	<Image
+							className="w-8 h-8 object-cover rounded-full"
+							src="/profilepic.jpg"
+							alt=""
+							width={50}
+							height={50}
+		/> */}
+								<CodeBracketSquareIcon className="h-8 w-8 text-indigo-600" />
 								<b>
 									{" "}
 									<h1 className="text-xl text-indigo-600">morgan/dev</h1>
@@ -154,15 +158,15 @@ function Header() {
 									<a
 										key={item.name}
 										href={item.href}
-										className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+										className="-mx-2 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 										{item.name}
 									</a>
 								))}
 							</div>
 							<div className="py-6">
 								<a
-									href="#"
-									className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+									href="/contact"
+									className="-mx-2 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
 									Get a quote
 								</a>
 							</div>
