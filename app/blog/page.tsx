@@ -130,8 +130,9 @@ export default async function Blog() {
 						Learn how to grow your business with our expert advice.
 					</p>
 				</div>
-				<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none md:grid-cols-2 lg:grid-cols-3"></div>
-				{postList}
+				<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+					{postList}
+				</div>
 			</div>
 		</MainLayout>
 	);
