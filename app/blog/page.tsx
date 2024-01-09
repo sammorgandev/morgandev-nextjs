@@ -2,6 +2,7 @@ import MainLayout from "../components/MainLayout";
 import { client } from "../../sanity/lib/client";
 import Image from "next/image";
 import { urlForImage } from "../../sanity/lib/image";
+import Link from "next/link";
 type Post = {
 	_id: string;
 	title: string;
@@ -51,8 +52,9 @@ type Post = {
 export default async function Blog() {
 	const posts = await client.fetch<Post[]>(`*[_type == "post"]`);
 	const postList = posts.map((post: Post) => (
-		<article
+		<Link
 			key={post._id}
+			href={`/blog/${post.slug.current}`}
 			className="flex flex-col items-start justify-between">
 			<div className="relative w-full">
 				{post.mainImage && (
@@ -71,24 +73,10 @@ export default async function Blog() {
 					<time dateTime={post.publishedAt} className="text-gray-500">
 						{post.publishedAt}
 					</time>
-					<a
-						href={
-							post.categories && post.categories[0]
-								? post.categories[0].slug
-								: "#"
-						}
-						className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
-						{post.categories && post.categories[0]
-							? post.categories[0].title
-							: "Category not available"}
-					</a>
 				</div>
 				<div className="group relative">
 					<h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-						<a href={post.slug ? String(post.slug) : ""}>
-							<span className="absolute inset-0" />
-							{post.title}
-						</a>
+						{post.title}
 					</h3>
 					<p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
 						{post.body[0].children[0].text}
@@ -105,17 +93,12 @@ export default async function Blog() {
 						/>
 					)}
 					<div className="text-sm leading-6">
-						<p className="font-semibold text-gray-900">
-							<a href={post.author.slug}>
-								<span className="absolute inset-0" />
-								{post.author.name}
-							</a>
-						</p>
+						<p className="font-semibold text-gray-900">{post.author.name}</p>
 						<p className="text-gray-600">{post.author.role}</p>
 					</div>
 				</div>
 			</div>
-		</article>
+		</Link>
 	));
 	if (!posts) return <div>Loading...</div>;
 
