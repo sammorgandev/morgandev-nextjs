@@ -59,10 +59,16 @@ export default async function BlogPost({
 	params: { id: string };
 }) {
 	const post = await client.fetch<Post>(
-		`*[_type == "post" && slug.current == "${id}"][0]`
+		`*[_type == "post" && slug.current == "${id}"]{
+			...,
+			categories[]->{
+			  title,
+			  slug,
+			  _ref
+			}
+		  }[0]`
 	);
 	if (!post) return <div>Loading...</div>;
-
 	return (
 		<div className="bg-transparent flex-col z-50">
 			<div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
@@ -78,6 +84,13 @@ export default async function BlogPost({
 				<h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
 					{post.title}
 				</h1>
+				{post.categories.map((category) => (
+					<p
+						className="text-base font-normal text-indigo-600 mt-6 px-6 py-2 bg-indigo-50 rounded-md inline-block"
+						key={category.title}>
+						{category.title}
+					</p>
+				))}
 				<p className="mt-6 text-xl leading-8">
 					Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At
 					arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae
