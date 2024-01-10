@@ -1,5 +1,5 @@
 "use client";
-import React, { use } from "react";
+import React from "react";
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import {
@@ -7,7 +7,6 @@ import {
 	XMarkIcon,
 	CodeBracketSquareIcon,
 } from "@heroicons/react/24/outline";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
@@ -18,25 +17,7 @@ const navigation = [
 	{ name: "Blog", href: "/blog" },
 	{ name: "Contact", href: "/contact" },
 ];
-//function to check if current scroll position >0
-//if so, add shadow and white background to header
-//if not, remove shadow and background
-// const [scroll, setScroll] = useState(false);
-// const changeBackground = () => {
-// 	if (window.scrollY >= 1) {
-// 		setScroll(true);
 
-// 	} else {
-// 		setScroll(false);
-// 	}
-// };
-// //add event listener to check scroll position
-// window.addEventListener("scroll", changeBackground);
-// const headerStyle = {
-// 	backgroundColor: scroll ? "#fff" : "transparent",
-// 	boxShadow: scroll ? "0 4px 2px -2px rgba(0,0,0,.2)" : "none",
-// 	transition: "all .5s ease",
-// };
 function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const currentPath = usePathname();
@@ -59,10 +40,6 @@ function Header() {
 		};
 	}, []);
 
-	//const headerStyle = {
-	//backgroundColor: scroll ? "bg-white" : "transparent",
-	//boxShadow: scroll ? "0 4px 2px -2px rgba(0,0,0,.2)" : "none",
-	//};
 	return (
 		<header
 			className={`inset-x-0 top-0 z-50 sticky ${
@@ -75,13 +52,6 @@ function Header() {
 				aria-label="Global">
 				<div className="flex items-center gap-4 lg:flex-1">
 					<a href="/" className="-mx-1 flex gap-2 items-center">
-						{/*	<Image
-							className="w-8 h-8 object-cover rounded-full"
-							src="/profilepic.jpg"
-							alt=""
-							width={50}
-							height={50}
-		/> */}
 						<CodeBracketSquareIcon className="h-8 w-8 text-indigo-600" />
 						<b>
 							{" "}
@@ -114,7 +84,7 @@ function Header() {
 					<a
 						href="/contact"
 						className="text-sm font-semibold leading-6 text-gray-900">
-						Get a quote <span aria-hidden="true">&rarr;</span>
+						Get in touch <span aria-hidden="true">&rarr;</span>
 					</a>
 				</div>
 			</nav>
@@ -129,13 +99,6 @@ function Header() {
 						<div className="flex gap-4">
 							{" "}
 							<a href="/" className="-mx-1 flex items-center gap-2">
-								{/*	<Image
-							className="w-8 h-8 object-cover rounded-full"
-							src="/profilepic.jpg"
-							alt=""
-							width={50}
-							height={50}
-		/> */}
 								<CodeBracketSquareIcon className="h-8 w-8 text-indigo-600" />
 								<b>
 									{" "}
@@ -167,7 +130,7 @@ function Header() {
 								<a
 									href="/contact"
 									className="-mx-2 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-									Get a quote
+									Get in touch
 								</a>
 							</div>
 						</div>

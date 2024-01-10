@@ -7,6 +7,7 @@ import { client } from "../../sanity/lib/client";
 import Image from "next/image";
 import { urlForImage } from "../../sanity/lib/image";
 import Link from "next/link";
+
 type Post = {
 	_id: string;
 	title: string;

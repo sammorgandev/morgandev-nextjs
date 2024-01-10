@@ -1,30 +1,50 @@
+"use client";
 import MainLayout from "../components/MainLayout";
 import Image from "next/image";
+import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/outline";
+import { sendEmail } from "../actions/sendEmail";
+import { useRef, useState, useEffect } from "react";
+import SuccessAlert from "../components/SuccessAlert";
+
 export default function Contact() {
+	const ref = useRef<HTMLFormElement>(null);
+	const [submitted, setSubmitted] = useState(false);
+
 	return (
 		<MainLayout>
 			<div className="relative isolate bg-transparent">
 				<div className="mx-auto max-w-2xl lg:max-w-4xl">
+					<div className="mb-4">
+						<SuccessAlert initialOpen={submitted} />
+					</div>
+
 					<h2 className="text-4xl text-left lg:text-center font-bold tracking-tight text-gray-900">
-						Let&apos;s talk about your project
+						Contact
 					</h2>
 					<p className="mt-2 text-lg text-left lg:text-center leading-8 text-gray-600">
-						We help companies and individuals build out their brand guidelines.
+						Get in touch if you&apos;re interested in working together.
 					</p>
 					<div className="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
-						<form action="#" method="POST" className="lg:flex-auto">
+						<form
+							ref={ref}
+							action={async (formData) => {
+								await sendEmail(formData);
+								ref.current?.reset();
+								setSubmitted(true);
+							}}
+							className="lg:flex-auto">
 							<div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
 								<div>
 									<label
-										htmlFor="first-name"
+										htmlFor="name"
 										className="block text-sm font-semibold leading-6 text-gray-900">
-										First name
+										Name
 									</label>
 									<div className="mt-2.5">
 										<input
 											type="text"
-											name="first-name"
-											id="first-name"
+											name="name"
+											id="name"
 											autoComplete="given-name"
 											className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 										/>
@@ -32,15 +52,15 @@ export default function Contact() {
 								</div>
 								<div>
 									<label
-										htmlFor="last-name"
+										htmlFor="email"
 										className="block text-sm font-semibold leading-6 text-gray-900">
-										Last name
+										Email
 									</label>
 									<div className="mt-2.5">
 										<input
 											type="text"
-											name="last-name"
-											id="last-name"
+											name="email"
+											id="email"
 											autoComplete="family-name"
 											className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 										/>
@@ -50,12 +70,12 @@ export default function Contact() {
 									<label
 										htmlFor="budget"
 										className="block text-sm font-semibold leading-6 text-gray-900">
-										Budget
+										Role
 									</label>
 									<div className="mt-2.5">
 										<input
-											id="budget"
-											name="budget"
+											id="role"
+											name="role"
 											type="text"
 											className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 										/>
@@ -109,35 +129,34 @@ export default function Contact() {
 							</p>
 						</form>
 						<div className="lg:mt-6 lg:w-80 lg:flex-none">
-							<Image
-								className="h-12 w-auto"
-								src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg"
-								alt=""
+							<ChatBubbleLeftEllipsisIcon
 								width={50}
 								height={50}
+								className="text-indigo-600"
 							/>
 							<figure className="mt-10">
 								<blockquote className="text-lg font-semibold leading-8 text-gray-900">
 									<p>
-										“Lorem ipsum dolor sit amet consectetur adipisicing elit.
-										Nemo expedita voluptas culpa sapiente alias molestiae.
-										Numquam corrupti in laborum sed rerum et corporis.”
+										“Sam [...] teaches and empowers the team, and somehow finds
+										the time to be a kind and generous person. He works
+										exceptionally hard while staying humble. So grateful to have
+										Sam on the team!”
 									</p>
 								</blockquote>
 								<figcaption className="mt-10 flex gap-x-6">
 									<Image
-										src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=96&h=96&q=80"
+										src="/bubble.png"
 										alt=""
-										className="h-12 w-12 flex-none rounded-full bg-gray-50"
+										className="h-12 w-12 flex-none"
 										width={50}
 										height={50}
 									/>
 									<div>
 										<div className="text-base font-semibold text-gray-900">
-											Brenna Goyette
+											Coworkers{" "}
 										</div>
 										<div className="text-sm leading-6 text-gray-600">
-											CEO of Workcation
+											@Bubble
 										</div>
 									</div>
 								</figcaption>

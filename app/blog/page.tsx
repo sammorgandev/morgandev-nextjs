@@ -71,7 +71,8 @@ export default async function Blog() {
 			<div className="max-w-xl">
 				<div className="mt-8 flex items-center gap-x-4 text-xs">
 					<time dateTime={post.publishedAt} className="text-gray-500">
-						{post.publishedAt}
+						{/* convert the line below into a readable date format */}
+						{new Date(post.publishedAt).toLocaleDateString()}{" "}
 					</time>
 				</div>
 				<div className="group relative">
@@ -107,7 +108,7 @@ export default async function Blog() {
 			<div className="mx-auto max-w-7xl">
 				<div className="mx-auto max-w-2xl text-left lg:text-center">
 					<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-						From the blog
+						Blog
 					</h2>
 					<p className="mt-2 text-lg leading-8 text-gray-600">
 						Long-form thoughts & ramblings.
