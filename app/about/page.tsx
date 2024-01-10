@@ -10,7 +10,7 @@ export default function About() {
 		<MainLayout>
 			<div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
 				<h1 className="mt-2 text-left lg:text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-					Hi - I&apos;m Sam 👋{" "}
+					About
 				</h1>
 				<p className="mt-6 text-xl leading-8">
 					I&apos;m a computer nerd, product enthusiast, and developer who is
