@@ -72,8 +72,8 @@ const posts = [
 	// More posts...
 ];
 export default async function Projects() {
-	const posts = await client.fetch<Project[]>(`*[_type == "project"]`);
-	const postList = posts.map((project: Project) => (
+	const projects = await client.fetch<Project[]>(`*[_type == "project"]`);
+	const projectList = projects.map((project: Project) => (
 		<Link
 			key={project._id}
 			href={`/blog/${project.slug.current}`}
@@ -137,7 +137,7 @@ export default async function Projects() {
 					</p>
 				</div>
 				<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-					{postList}
+					{projectList}
 				</div>
 			</div>
 		</MainLayout>
