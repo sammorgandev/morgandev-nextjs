@@ -13,8 +13,8 @@ import { useEffect } from "react";
 const navigation = [
 	{ name: "Home", href: "/" },
 	{ name: "About", href: "/about" },
-	{ name: "Projects", href: "/projects" },
 	{ name: "Blog", href: "/blog" },
+	{ name: "Projects", href: "/projects" },
 	{ name: "Contact", href: "/contact" },
 ];
 
