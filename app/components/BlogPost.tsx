@@ -5,6 +5,7 @@ import Breadcrumbs from "./Breadcrumbs";
 type Post = {
 	_id: string;
 	title: string;
+	subtitle: string;
 	slug: {
 		_type: string;
 		current: string;
@@ -86,10 +87,7 @@ export default async function BlogPost({
 					))}
 				</div>
 				<p className="mt-6 text-xl leading-8 dark:text-slate-300">
-					Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At
-					arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae
-					feugiat egestas ac. Diam nulla orci at in viverra scelerisque eget.
-					Eleifend egestas fringilla sapien.
+					{post.subtitle}
 				</p>
 				<div className="mt-6 rounded-sm">
 					<Image
