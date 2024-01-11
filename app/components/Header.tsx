@@ -56,10 +56,10 @@ function Header() {
 				aria-label="Global">
 				<div className="flex items-center gap-4 lg:flex-1">
 					<a href="/" className="-mx-1 flex gap-2 items-center">
-						<CodeBracketSquareIcon className="h-8 w-8 text-indigo-600 dark:text-indigo-500" />
+						<CodeBracketSquareIcon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
 						<b>
 							{" "}
-							<h1 className="text-xl text-indigo-600 dark:text-indigo-500">
+							<h1 className="text-xl text-indigo-600 dark:text-indigo-400">
 								morgan/dev
 							</h1>
 						</b>
@@ -72,9 +72,9 @@ function Header() {
 						}
 						className="w-fit cursor-pointer py-1 px-1 ring-1 ring-gray-900/10 rounded-full hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
 						{theme === "dark" ? (
-							<MoonIcon width={15} height={15} />
-						) : (
 							<SunIcon width={15} height={15} />
+						) : (
+							<MoonIcon width={15} height={15} />
 						)}
 					</div>
 					<button
@@ -106,9 +106,9 @@ function Header() {
 						}
 						className="w-fit cursor-pointer py-1 px-1 ring-1 ring-gray-900/10 rounded-full hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
 						{theme === "dark" ? (
-							<MoonIcon width={15} height={15} />
-						) : (
 							<SunIcon width={15} height={15} />
+						) : (
+							<MoonIcon width={15} height={15} />
 						)}
 					</div>
 					<a
@@ -129,10 +129,12 @@ function Header() {
 						<div className="flex gap-4">
 							{" "}
 							<a href="/" className="-mx-1 flex items-center gap-2">
-								<CodeBracketSquareIcon className="h-8 w-8 text-indigo-600" />
+								<CodeBracketSquareIcon className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
 								<b>
 									{" "}
-									<h1 className="text-xl text-indigo-600">morgan/dev</h1>
+									<h1 className="text-xl text-indigo-600 dark:text-indigo-400">
+										morgan/dev
+									</h1>
 								</b>
 							</a>
 						</div>

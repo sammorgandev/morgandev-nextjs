@@ -8,17 +8,17 @@ export default function Hero() {
 						Seeking partnership opportunities{" "}
 						<a
 							href="/about"
-							className="font-semibold text-indigo-600 dark:text-indigo-500">
+							className="font-semibold text-indigo-600 dark:text-indigo-400">
 							<span className="absolute inset-0" aria-hidden="true" />
 							Get in touch<span aria-hidden="true">&rarr;</span>
 						</a>
 					</div>
 				</div>
 				<div className="text-left lg:text-center">
-					<div className="text-6xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-100 flex justify-center gap-8">
+					<div className="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-slate-100 flex justify-left lg:justify-center gap-8">
 						<div className="wave-element -mt-1">👋</div>
 						<div>
-							<h1 className="text-6xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-100">
+							<h1 className="text-5xl md:text-6xl font-bold tracking-tight text-gray-900 dark:text-slate-100">
 								Hi - I&apos;m Sam
 							</h1>
 						</div>
