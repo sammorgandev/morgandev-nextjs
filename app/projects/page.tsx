@@ -92,16 +92,18 @@ export default async function Projects() {
 			</div>
 			<div className="max-w-xl">
 				<div className="mt-8 flex items-center gap-x-4 text-xs">
-					<time dateTime={project.publishedAt} className="text-gray-500">
+					<time
+						dateTime={project.publishedAt}
+						className="text-gray-500 dark:text-slate-400">
 						{/* convert the line below into a readable date format */}
 						{new Date(project.publishedAt).toLocaleDateString()}{" "}
 					</time>
 				</div>
 				<div className="group relative">
-					<h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+					<h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 dark:text-slate-300">
 						{project.title}
 					</h3>
-					<p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+					<p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-slate-300">
 						{project.body[0].children[0].text}
 					</p>
 				</div>
@@ -116,7 +118,9 @@ export default async function Projects() {
 						/>
 					)}
 					<div className="text-sm leading-6">
-						<p className="font-semibold text-gray-900">{project.author.name}</p>
+						<p className="font-semibold text-gray-900 dark:text-slate-300">
+							{project.author.name}
+						</p>
 						<p className="text-gray-600">{project.author.role}</p>
 					</div>
 				</div>
@@ -129,10 +133,10 @@ export default async function Projects() {
 		<MainLayout>
 			<div className="mx-auto max-w-7xl">
 				<div className="mx-auto max-w-2xl text-left lg:text-center">
-					<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+					<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
 						Projects
 					</h2>
-					<p className="mt-2 text-lg leading-8 text-gray-600">
+					<p className="mt-2 text-lg leading-8 text-gray-600 dark:text-slate-300">
 						Things I&apos;ve built.{" "}
 					</p>
 				</div>

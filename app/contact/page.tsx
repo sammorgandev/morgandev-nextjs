@@ -14,10 +14,10 @@ export default function Contact() {
 		<MainLayout>
 			<div className="relative isolate bg-transparent">
 				<div className="mx-auto max-w-2xl lg:max-w-4xl">
-					<h2 className="text-4xl text-left lg:text-center font-bold tracking-tight text-gray-900">
+					<h2 className="text-4xl text-left lg:text-center font-bold tracking-tight text-gray-900 dark:text-slate-100">
 						Contact
 					</h2>
-					<p className="mt-2 text-lg text-left lg:text-center leading-8 text-gray-600">
+					<p className="mt-2 text-lg text-left lg:text-center leading-8 text-gray-600 dark:text-slate-300">
 						Get in touch if you&apos;re interested in working together.
 					</p>
 					<div className="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
@@ -33,7 +33,7 @@ export default function Contact() {
 								<div>
 									<label
 										htmlFor="name"
-										className="block text-sm font-semibold leading-6 text-gray-900">
+										className="block text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300">
 										Name
 									</label>
 									<div className="mt-2.5">
@@ -49,7 +49,7 @@ export default function Contact() {
 								<div>
 									<label
 										htmlFor="email"
-										className="block text-sm font-semibold leading-6 text-gray-900">
+										className="block text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300">
 										Email
 									</label>
 									<div className="mt-2.5">
@@ -65,7 +65,7 @@ export default function Contact() {
 								<div>
 									<label
 										htmlFor="budget"
-										className="block text-sm font-semibold leading-6 text-gray-900">
+										className="block text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300">
 										Role
 									</label>
 									<div className="mt-2.5">
@@ -80,7 +80,7 @@ export default function Contact() {
 								<div>
 									<label
 										htmlFor="website"
-										className="block text-sm font-semibold leading-6 text-gray-900">
+										className="block text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300">
 										Website
 									</label>
 									<div className="mt-2.5">
@@ -95,7 +95,7 @@ export default function Contact() {
 								<div className="sm:col-span-2">
 									<label
 										htmlFor="message"
-										className="block text-sm font-semibold leading-6 text-gray-900">
+										className="block text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300">
 										Message
 									</label>
 									<div className="mt-2.5">
@@ -119,7 +119,7 @@ export default function Contact() {
 									Let&apos;s talk
 								</button>
 							</div>
-							<p className="mt-4 text-sm leading-6 text-gray-500">
+							<p className="mt-4 text-sm leading-6 text-gray-500 dark:text-slate-400">
 								By submitting this form, I agree to the{" "}
 								<a href="#" className="font-semibold text-indigo-600">
 									privacy&nbsp;policy
@@ -134,7 +134,7 @@ export default function Contact() {
 								className="text-indigo-600"
 							/>
 							<figure className="mt-10">
-								<blockquote className="text-lg font-semibold leading-8 text-gray-900">
+								<blockquote className="text-lg font-semibold leading-8 text-gray-900 dark:text-slate-300">
 									<p>
 										“Sam [...] teaches and empowers the team, and somehow finds
 										the time to be a kind and generous person. He works
@@ -151,10 +151,10 @@ export default function Contact() {
 										height={50}
 									/>
 									<div>
-										<div className="text-base font-semibold text-gray-900">
+										<div className="text-base font-semibold text-gray-900 dark:text-slate-300">
 											Coworkers{" "}
 										</div>
-										<div className="text-sm leading-6 text-gray-600">
+										<div className="text-sm leading-6 text-gray-600 dark:text-slate-300">
 											@Bubble
 										</div>
 									</div>

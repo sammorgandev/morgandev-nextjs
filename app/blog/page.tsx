@@ -70,20 +70,22 @@ export default async function Blog() {
 			</div>
 			<div className="max-w-xl">
 				<div className="mt-8 flex items-center gap-x-4 text-xs">
-					<time dateTime={post.publishedAt} className="text-gray-500">
+					<time
+						dateTime={post.publishedAt}
+						className="text-gray-500 dark:text-slate-400">
 						{/* convert the line below into a readable date format */}
 						{new Date(post.publishedAt).toLocaleDateString()}{" "}
 					</time>
 				</div>
 				<div className="group relative">
-					<h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+					<h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 dark:text-slate-300 dark:group-hover:text-slate-200">
 						{post.title}
 					</h3>
-					<p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
+					<p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-slate-300">
 						{post.body[0].children[0].text}
 					</p>
 				</div>
-				<div className="relative mt-8 flex items-center gap-x-4">
+				<div className="relative mt-8 flex items-center gap-x-4 dark:text-slate-300">
 					{post.author.image && (
 						<Image
 							src={post.author.image}
@@ -94,7 +96,9 @@ export default async function Blog() {
 						/>
 					)}
 					<div className="text-sm leading-6">
-						<p className="font-semibold text-gray-900">{post.author.name}</p>
+						<p className="font-semibold text-gray-900 dark:text-slate-300">
+							{post.author.name}
+						</p>
 						<p className="text-gray-600">{post.author.role}</p>
 					</div>
 				</div>
@@ -107,10 +111,10 @@ export default async function Blog() {
 		<MainLayout>
 			<div className="mx-auto max-w-7xl">
 				<div className="mx-auto max-w-2xl text-left lg:text-center">
-					<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+					<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
 						Blog
 					</h2>
-					<p className="mt-2 text-lg leading-8 text-gray-600">
+					<p className="mt-2 text-lg leading-8 text-gray-600 dark:text-slate-300">
 						Long-form thoughts & ramblings.
 					</p>
 				</div>

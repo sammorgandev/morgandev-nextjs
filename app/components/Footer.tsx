@@ -60,14 +60,14 @@ export default function Example() {
 						<a
 							key={item.name}
 							href={item.href}
-							className="text-gray-400 hover:text-gray-500">
+							className="text-gray-400 hover:text-gray-500 dark:text-slate-300 dark:hover:text-slate-200">
 							<span className="sr-only">{item.name}</span>
 							<item.icon className="h-6 w-6" aria-hidden="true" />
 						</a>
 					))}
 				</div>
 				<div className="mt-8 md:order-1 md:mt-0">
-					<p className="text-left lg:text-center text-xs leading-5 text-gray-500">
+					<p className="text-left lg:text-center text-xs leading-5 text-gray-500 dark:text-slate-300">
 						Built with ❤️ on Next.js in Old Saybrook, CT. &copy;2024 Morgan.dev
 						LLC. All rights reserved.
 					</p>
