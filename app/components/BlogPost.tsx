@@ -68,7 +68,7 @@ export default async function BlogPost({
 	return (
 		<div className="bg-transparent flex-col z-50">
 			<div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
-				<div className="mb-4">
+				<div className="mb-10">
 					<Breadcrumbs />
 				</div>
 				<p className="text-base font-semibold leading-7 text-indigo-600">
@@ -101,10 +101,13 @@ export default async function BlogPost({
 				<div className="mt-10 max-w-3xl h-fit dark:text-slate-300">
 					<p>
 						{post.body.map((block) => (
-							<p key={block.children[0]._key} className="mb-5">
+							<span key={block.children[0]._key}>
 								<span>{block.children[0].text}</span>
-								<br></br>
-							</p>
+								<span>
+									<br></br>
+									<br></br>
+								</span>
+							</span>
 						))}
 					</p>
 				</div>
