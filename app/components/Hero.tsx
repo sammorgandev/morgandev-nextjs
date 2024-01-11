@@ -15,9 +15,14 @@ export default function Hero() {
 					</div>
 				</div>
 				<div className="text-left lg:text-center">
-					<h1 className="text-6xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-100">
-						Hi - I&apos;m Sam 👋
-					</h1>
+					<div className="text-6xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-100 flex justify-center gap-8">
+						<div className="wave-element -mt-1">👋</div>
+						<div>
+							<h1 className="text-6xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-100">
+								Hi - I&apos;m Sam
+							</h1>
+						</div>
+					</div>
 					<p className="mt-6 text-lg leading-8 text-gray-600 dark:text-slate-300">
 						I&apos;m a computer nerd, product enthusiast, and developer who is
 						passionate about{" "}
