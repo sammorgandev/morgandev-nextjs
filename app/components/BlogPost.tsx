@@ -1,12 +1,6 @@
-import {
-	CheckCircleIcon,
-	InformationCircleIcon,
-	ArrowLeftCircleIcon,
-} from "@heroicons/react/20/solid";
 import { client } from "../../sanity/lib/client";
 import Image from "next/image";
 import { urlForImage } from "../../sanity/lib/image";
-import Link from "next/link";
 import Breadcrumbs from "./Breadcrumbs";
 type Post = {
 	_id: string;
@@ -82,13 +76,15 @@ export default async function BlogPost({
 				<h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
 					{post.title}
 				</h1>
-				{post.categories.map((category) => (
-					<p
-						className="text-base font-normal text-indigo-600 mt-6 px-6 py-2 bg-indigo-50 rounded-md inline-block"
-						key={category.title}>
-						{category.title}
-					</p>
-				))}
+				<div className="flex gap-4">
+					{post.categories.map((category) => (
+						<p
+							className="text-base font-normal text-indigo-600 mt-6 px-6 py-2 bg-indigo-50 rounded-md inline-block"
+							key={category.title}>
+							{category.title}
+						</p>
+					))}
+				</div>
 				<p className="mt-6 text-xl leading-8 dark:text-slate-300">
 					Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At
 					arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae
@@ -104,14 +100,14 @@ export default async function BlogPost({
 						height={1000}
 					/>
 				</div>
-				<div className="mt-10 max-w-2xl dark:text-slate-300">
+				<div className="mt-10 max-w-3xl h-fit dark:text-slate-300">
 					<p>
-						Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
-						enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
-						praesent donec est. Odio penatibus risus viverra tellus varius sit
-						neque erat velit. Faucibus commodo massa rhoncus, volutpat.
-						Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae
-						sed turpis id.
+						{post.body.map((block) => (
+							<p key={block.children[0]._key} className="mb-5">
+								<span>{block.children[0].text}</span>
+								<br></br>
+							</p>
+						))}
 					</p>
 				</div>
 			</div>
