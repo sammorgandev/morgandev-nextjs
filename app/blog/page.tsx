@@ -55,20 +55,19 @@ export default async function Blog() {
 		<Link
 			key={post._id}
 			href={`/blog/${post.slug.current}`}
-			className="flex flex-col items-start justify-between">
+			className="flex flex-col items-start justify-between bg-white shadow-sm dark:bg-gray-950 hover:shadow-md dark:hover:bg-gray-900 dark:hover:shadow-md rounded-2xl">
 			<div className="relative w-full">
 				{post.mainImage && (
 					<Image
 						src={urlForImage(post.mainImage)}
 						alt={post.title}
-						className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+						className="aspect-[16/9] w-full rounded-t-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
 						width={500}
 						height={500}
 					/>
 				)}
-				<div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 			</div>
-			<div className="max-w-xl">
+			<div className="max-w-xl px-6 ">
 				<div className="mt-8 flex items-center gap-x-4 text-xs">
 					<time
 						dateTime={post.publishedAt}
@@ -114,11 +113,8 @@ export default async function Blog() {
 					<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-100">
 						Blog
 					</h2>
-					<p className="mt-2 text-lg leading-8 text-gray-600 dark:text-slate-300">
-						Long-form thoughts & ramblings.
-					</p>
 				</div>
-				<div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+				<div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 					{postList}
 				</div>
 			</div>

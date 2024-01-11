@@ -5,11 +5,12 @@ import { ChatBubbleLeftEllipsisIcon } from "@heroicons/react/24/outline";
 import { sendEmail } from "../actions/sendEmail";
 import { useRef, useState, useEffect } from "react";
 import SuccessAlert from "../components/SuccessAlert";
-
+import { useTheme } from "next-themes";
 export default function Contact() {
 	const ref = useRef<HTMLFormElement>(null);
 	const [submitted, setSubmitted] = useState(false);
-
+	const { systemTheme, theme, setTheme } = useTheme();
+	const currentTheme = theme === "system" ? systemTheme : theme;
 	return (
 		<MainLayout>
 			<div className="relative isolate bg-transparent">
@@ -17,10 +18,8 @@ export default function Contact() {
 					<h2 className="text-4xl text-left lg:text-center font-bold tracking-tight text-gray-900 dark:text-slate-100">
 						Contact
 					</h2>
-					<p className="mt-2 text-lg text-left lg:text-center leading-8 text-gray-600 dark:text-slate-300">
-						Get in touch if you&apos;re interested in working together.
-					</p>
-					<div className="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
+
+					<div className="mt-6 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
 						<form
 							ref={ref}
 							action={async (formData) => {
@@ -144,7 +143,7 @@ export default function Contact() {
 								</blockquote>
 								<figcaption className="mt-10 flex gap-x-6">
 									<Image
-										src="/bubble.png"
+										src={theme === "dark" ? "/bubble-dark.png" : "/bubble.png"}
 										alt=""
 										className="h-12 w-12 flex-none"
 										width={50}

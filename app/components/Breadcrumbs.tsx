@@ -28,7 +28,13 @@ export default function Breadcrumbs() {
 								<path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
 							</svg>
 							<a
-								href={page === "blog" ? "/blog" : `/blog/${page}`}
+								href={
+									page === "blog"
+										? "/blog"
+										: page === "projects"
+										? "/projects"
+										: `/${pages[0]}/${page}`
+								}
 								className="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-slate-300 dark:hover:text-slate-100">
 								{page}
 							</a>

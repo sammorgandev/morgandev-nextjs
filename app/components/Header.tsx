@@ -43,7 +43,6 @@ function Header() {
 			window.removeEventListener("scroll", changeBackground);
 		};
 	}, []);
-
 	return (
 		<header
 			className={`inset-x-0 top-0 z-50 sticky ${
@@ -113,8 +112,15 @@ function Header() {
 					</div>
 					<a
 						href="/contact"
-						className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300">
-						Get in touch <span aria-hidden="true">&rarr;</span>
+						className={`"text-sm font-semibold leading-6  ${
+							currentPath === "/contact"
+								? "text-indigo-600"
+								: "text-gray-900 dark:text-slate-300"
+						}`}>
+						Get in touch{" "}
+						<span aria-hidden="true">
+							{currentPath !== "/contact" ? "→" : "↓"}
+						</span>
 					</a>
 				</div>
 			</nav>
