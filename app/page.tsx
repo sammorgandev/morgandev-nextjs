@@ -1,3 +1,4 @@
+import React from "react";
 import Hero from "./components/Hero";
 import MainLayout from "./components/MainLayout";
 export default function Home() {

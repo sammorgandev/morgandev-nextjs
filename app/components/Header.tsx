@@ -11,6 +11,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { useTheme } from "next-themes";
 
 const navigation = [
 	{ name: "Home", href: "/" },
@@ -24,26 +25,8 @@ function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const currentPath = usePathname();
 	const [scroll, setScroll] = useState(false);
-	const [theme, setTheme] = useState(() => {
-		if (typeof window !== "undefined") {
-			return localStorage.getItem("theme") || "light";
-		} else {
-			return "light";
-		}
-	});
-	const colorTheme = theme === "light" ? "dark" : "light";
-
-	useEffect(() => {
-		const root = window.document.documentElement;
-
-		root.classList.remove(colorTheme);
-		root.classList.add(theme);
-
-		// Save the current theme to localStorage
-
-		localStorage.setItem("theme", theme);
-	}, [theme, colorTheme]);
-
+	const { systemTheme, theme, setTheme } = useTheme();
+	const currentTheme = theme === "system" ? systemTheme : theme;
 	useEffect(() => {
 		const changeBackground = () => {
 			if (window.scrollY >= 1) {
@@ -84,7 +67,9 @@ function Header() {
 				</div>
 				<div className="flex lg:hidden gap-4">
 					<div
-						onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+						onClick={() =>
+							theme == "dark" ? setTheme("light") : setTheme("dark")
+						}
 						className="w-fit cursor-pointer py-1 px-1 ring-1 ring-gray-900/10 rounded-full hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
 						{theme === "dark" ? (
 							<MoonIcon width={15} height={15} />
@@ -116,7 +101,9 @@ function Header() {
 				</div>
 				<div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
 					<div
-						onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+						onClick={() =>
+							theme == "dark" ? setTheme("light") : setTheme("dark")
+						}
 						className="w-fit cursor-pointer py-1 px-1 ring-1 ring-gray-900/10 rounded-full hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
 						{theme === "dark" ? (
 							<MoonIcon width={15} height={15} />

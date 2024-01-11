@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Providers } from "./providers";
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Sam Morgan | Web Developer",
@@ -10,14 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode
+	children: React.ReactNode;
 }) {
-  return (
+	return (
 		<html lang="en" className="h-full">
 			<body className={`${inter.className} bg-white dark:bg-black`}>
-				{children}
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);
