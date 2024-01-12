@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Providers } from "./providers";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import BackgroundBlur from "./components/BackgroundBlur";
@@ -21,14 +22,16 @@ export default function RootLayout({
 		<html lang="en" className="h-full" suppressHydrationWarning>
 			<body className={`${inter.className} bg-white dark:bg-black`}>
 				<Providers>
-					<div className="h-screen flex flex-col">
-						<div className="flex-shrink flex-grow-0 z-0">
-							<BackgroundBlur />
+					<UserProvider>
+						<div className="h-screen flex flex-col">
+							<div className="flex-shrink flex-grow-0 z-0">
+								<BackgroundBlur />
+							</div>
+							<Header />
+							{children}
+							<Footer />
 						</div>
-						<Header />
-						{children}
-						<Footer />
-					</div>
+					</UserProvider>
 				</Providers>
 			</body>
 		</html>
