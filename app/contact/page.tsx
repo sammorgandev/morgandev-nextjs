@@ -9,9 +9,8 @@ import { useTheme } from "next-themes";
 export default function Contact() {
 	const ref = useRef<HTMLFormElement>(null);
 	const [submitted, setSubmitted] = useState(false);
-	const { systemTheme, theme, setTheme } = useTheme();
+	const { theme } = useTheme();
 	const [mounted, setMounted] = useState(false);
-	const currentTheme = theme === "system" ? systemTheme : theme;
 	useEffect(() => setMounted(true), []);
 
 	return (

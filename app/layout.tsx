@@ -4,6 +4,7 @@ import './globals.css'
 import { Providers } from "./providers";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import BackgroundBlur from "./components/BackgroundBlur";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,9 +21,14 @@ export default function RootLayout({
 		<html lang="en" className="h-full" suppressHydrationWarning>
 			<body className={`${inter.className} bg-white dark:bg-black`}>
 				<Providers>
-					<Header />
-					{children}
-					<Footer />
+					<div className="h-screen flex flex-col">
+						<div className="flex-shrink flex-grow-0 z-0">
+							<BackgroundBlur />
+						</div>
+						<Header />
+						{children}
+						<Footer />
+					</div>
 				</Providers>
 			</body>
 		</html>
