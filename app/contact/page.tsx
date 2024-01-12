@@ -10,7 +10,10 @@ export default function Contact() {
 	const ref = useRef<HTMLFormElement>(null);
 	const [submitted, setSubmitted] = useState(false);
 	const { systemTheme, theme, setTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
 	const currentTheme = theme === "system" ? systemTheme : theme;
+	useEffect(() => setMounted(true), []);
+
 	return (
 		<MainLayout>
 			<div className="relative isolate bg-transparent">
@@ -142,13 +145,17 @@ export default function Contact() {
 									</p>
 								</blockquote>
 								<figcaption className="mt-10 flex gap-x-6">
-									<Image
-										src={theme === "dark" ? "/bubble-dark.png" : "/bubble.png"}
-										alt=""
-										className="h-12 w-12 flex-none"
-										width={50}
-										height={50}
-									/>
+									{mounted && (
+										<Image
+											src={
+												theme === "dark" ? "/bubble-dark.png" : "/bubble.png"
+											}
+											alt=""
+											className="h-12 w-12 flex-none"
+											width={50}
+											height={50}
+										/>
+									)}
 									<div>
 										<div className="text-base font-semibold text-gray-900 dark:text-slate-300">
 											Coworkers{" "}

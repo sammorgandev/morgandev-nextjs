@@ -3,19 +3,18 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 
-import { use, useEffect, useState } from "react";
-import { set } from "sanity";
+import { useEffect, useState } from "react";
 export default function Hero() {
-	const { systemTheme, theme, setTheme } = useTheme();
-	const currentTheme = theme === "system" ? systemTheme : theme;
+	const { theme, setTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+	useEffect(() => setMounted(true), []);
 	useEffect(() => {
-		if (currentTheme === "dark") {
+		if (theme === "dark") {
 			setTheme("dark");
 		} else {
 			setTheme("light");
 		}
-	}, [currentTheme, setTheme]);
-
+	}, [theme, setTheme]);
 	return (
 		<div className="bg-transparent py-8 lg:py-20">
 			<div className="mx-auto max-w-2xl">
@@ -23,15 +22,22 @@ export default function Hero() {
 					<div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
 						<div className="flex gap-2 items-center">
 							<div className="h-fit mt-0.5">
-								<Image
-									src={
-										theme === "dark" ? "/x-dark-mode.png" : "/twitter-logo.png"
-									}
-									width={15}
-									height={10}
-									alt="Sam"
-								/>
+								{mounted && (
+									<Image
+										src={
+											mounted
+												? theme === "dark"
+													? "/x-dark-mode.png"
+													: "/twitter-logo.png"
+												: "/x-dark-mode.png"
+										}
+										width={15}
+										height={10}
+										alt="Sam"
+									/>
+								)}
 							</div>
+
 							<span className="font-semibold">@_sambubble </span>
 							<a
 								href="https://twitter.com/_sambubble"
@@ -81,3 +87,4 @@ export default function Hero() {
 		</div>
 	);
 }
+

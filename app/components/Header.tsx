@@ -1,6 +1,6 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+"use client";
+import React, { useState, useEffect, memo, use } from "react";
 import { Dialog } from "@headlessui/react";
 import {
 	Bars3Icon,
@@ -10,8 +10,8 @@ import {
 	SunIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
 import { useTheme } from "next-themes";
+import { set } from "sanity";
 
 const navigation = [
 	{ name: "Home", href: "/" },
@@ -21,26 +21,65 @@ const navigation = [
 	{ name: "Contact", href: "/contact" },
 ];
 
+const ThemeIcon = memo(({ theme }: { theme: string }) =>
+	theme === "dark" ? (
+		<SunIcon width={15} height={15} />
+	) : (
+		<MoonIcon width={15} height={15} />
+	)
+);
+ThemeIcon.displayName = "ThemeIcon";
+
 function Header() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const currentPath = usePathname();
 	const [scroll, setScroll] = useState(false);
-	const { systemTheme, theme, setTheme } = useTheme();
-	const currentTheme = theme === "system" ? systemTheme : theme;
+	const { resolvedTheme, setTheme } = useTheme();
+	const [mounted, setMounted] = useState(false);
+	const [theme, setLocalTheme] = useState("");
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			const localTheme = window.localStorage.getItem("theme");
+			setTheme(localTheme || "");
+			setLocalTheme(localTheme || "");
+			setMounted(true);
+		}
+	}, [setTheme]);
+	useEffect(() => {
+		return setLocalTheme(resolvedTheme || "");
+	}, [resolvedTheme]);
+	const toggleTheme = () => {
+		if (!mounted) return;
+
+		const nextTheme = resolvedTheme === "dark" ? "light" : "dark";
+		setTheme(nextTheme);
+
+		if (typeof window !== "undefined") {
+			window.localStorage.setItem("theme", nextTheme);
+		}
+	};
+	let localTheme = "";
+	if (typeof window !== "undefined") {
+		localTheme = window.localStorage.getItem("theme") || "";
+	}
 	useEffect(() => {
 		const changeBackground = () => {
-			if (window.scrollY >= 1) {
+			if (typeof window !== "undefined" && window.scrollY >= 1) {
 				setScroll(true);
 			} else {
 				setScroll(false);
 			}
 		};
 
-		window.addEventListener("scroll", changeBackground);
+		if (typeof window !== "undefined") {
+			window.addEventListener("scroll", changeBackground);
+		}
 
-		// Clean up the event listener when the component unmounts
 		return () => {
-			window.removeEventListener("scroll", changeBackground);
+			if (typeof window !== "undefined") {
+				window.removeEventListener("scroll", changeBackground);
+			}
 		};
 	}, []);
 	return (
@@ -65,17 +104,14 @@ function Header() {
 					</a>
 				</div>
 				<div className="flex lg:hidden gap-4">
-					<div
-						onClick={() =>
-							theme == "dark" ? setTheme("light") : setTheme("dark")
-						}
-						className="w-fit cursor-pointer py-1 px-1 ring-1 ring-gray-900/10 rounded-full hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
-						{theme === "dark" ? (
-							<SunIcon width={15} height={15} />
-						) : (
-							<MoonIcon width={15} height={15} />
-						)}
-					</div>
+					{theme && (
+						<div
+							onClick={toggleTheme}
+							className="w-fit cursor-pointer py-1 px-1 ring-1 ring-gray-900/10 rounded-full hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
+							<ThemeIcon theme={theme || ""} />
+						</div>
+					)}
+
 					<button
 						type="button"
 						className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-slate-300"
@@ -99,17 +135,14 @@ function Header() {
 					))}
 				</div>
 				<div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
-					<div
-						onClick={() =>
-							theme == "dark" ? setTheme("light") : setTheme("dark")
-						}
-						className="w-fit cursor-pointer py-1 px-1 ring-1 ring-gray-900/10 rounded-full hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
-						{theme === "dark" ? (
-							<SunIcon width={15} height={15} />
-						) : (
-							<MoonIcon width={15} height={15} />
-						)}
-					</div>
+					{theme && (
+						<div
+							onClick={toggleTheme}
+							className="w-fit cursor-pointer py-1 px-1 ring-1 ring-gray-900/10 rounded-full hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
+							<ThemeIcon theme={theme || ""} />
+						</div>
+					)}
+
 					<a
 						href="/contact"
 						className={`"text-sm font-semibold leading-6  ${
