@@ -1,17 +1,46 @@
+"use client";
 import Link from "next/link";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+
+import { use, useEffect, useState } from "react";
+import { set } from "sanity";
 export default function Hero() {
+	const { systemTheme, theme, setTheme } = useTheme();
+	const currentTheme = theme === "system" ? systemTheme : theme;
+	useEffect(() => {
+		if (currentTheme === "dark") {
+			setTheme("dark");
+		} else {
+			setTheme("light");
+		}
+	}, [currentTheme, setTheme]);
+
 	return (
 		<div className="bg-transparent py-8 lg:py-20">
 			<div className="mx-auto max-w-2xl">
 				<div className="justify-left mb-8 flex lg:justify-center">
 					<div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-slate-300 dark:ring-gray-200/10 dark:hover:ring-gray-200/20">
-						Seeking partnership opportunities{" "}
-						<a
-							href="/about"
-							className="font-semibold text-indigo-600 dark:text-indigo-400">
-							<span className="absolute inset-0" aria-hidden="true" />
-							Get in touch<span aria-hidden="true">&rarr;</span>
-						</a>
+						<div className="flex gap-2 items-center">
+							<div className="h-fit mt-0.5">
+								<Image
+									src={
+										theme === "dark" ? "/x-dark-mode.png" : "/twitter-logo.png"
+									}
+									width={15}
+									height={10}
+									alt="Sam"
+								/>
+							</div>
+							<span className="font-semibold">@_sambubble </span>
+							<a
+								href="https://twitter.com/_sambubble"
+								target="_blank"
+								className="font-semibold text-indigo-600 dark:text-indigo-400 ml-2">
+								<span className="absolute inset-0" aria-hidden="true" />
+								Follow me<span aria-hidden="true">&rarr;</span>
+							</a>
+						</div>
 					</div>
 				</div>
 				<div className="text-left lg:text-center">

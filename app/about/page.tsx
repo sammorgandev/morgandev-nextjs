@@ -16,14 +16,23 @@ export default function About() {
 					I&apos;m a computer nerd, product enthusiast, and developer who is
 					passionate about{" "}
 					<b>helping small businesses and niche industries grow</b> and thrive.
-					I work for{" "}
-					<Link href="https://bubble.io" target="_blank">
-						@bubble
-					</Link>{" "}
-					by day, and I build websites, mobile apps, custom CRMs, lead tracking
-					solutions, and business ops management software in my spare time.
 				</p>
 				<div className="mt-10 text-left max-w-2xl dark:text-slate-300">
+					<p>
+						I work for{" "}
+						<Link
+							href="https://bubble.io"
+							target="_blank"
+							className="hover:text-white">
+							@bubble
+						</Link>{" "}
+						by day, and I build websites, mobile apps, custom CRMs, lead
+						tracking solutions, and business ops management software in my spare
+						time.{" "}
+					</p>
+					<span>
+						<br></br>
+					</span>
 					<p>
 						This site is my home for personal work and side projects. I
 						don&apos;t take on a lot of freelance development work, but I&apos;m
@@ -33,6 +42,9 @@ export default function About() {
 						for in a developer, I&apos;m always open to networking and
 						connection opportunities.
 					</p>
+					<h2 className="text-xl font-bold mt-10">
+						Here are a few things I&apos;m looking for in collaborators:
+					</h2>
 					<ul
 						role="list"
 						className="mt-8 max-w-xl space-y-8 text-gray-600 dark:text-slate-300">
@@ -56,7 +68,7 @@ export default function About() {
 							/>
 							<span>
 								<strong className="font-semibold text-gray-900 dark:text-slate-300">
-									Ship Fast
+									Ship fast mindsets
 								</strong>{" "}
 								I like to work with people who ship and fail fast. I&apos;m
 								comfortable iterating and changing course if the market speaks
@@ -70,7 +82,7 @@ export default function About() {
 							/>
 							<span>
 								<strong className="font-semibold text-gray-900 dark:text-slate-300">
-									Seeking Designers
+									Design backgrounds
 								</strong>{" "}
 								I&apos;m a builder at heart, and if you&apos;re a designer at
 								heart we should work together.
